@@ -36,8 +36,8 @@ class dwolla{
     //Call this from the page you are redirected to with the code get parameter
     //pass in the code and the redirect_uri
     function get_oauth_token($code = null){
-        $result = array('success'=>"false");
-        if(empty($this->user_id)||empty($code)) return $result;
+        $result = array('success'=>"false", "reason"=>"no code");
+        if(empty($code)) return $result;
         
         $this->end_point = 'v2/token';
         $params = array_merge($this->options, array('grant_type'=>'authorization_code',
