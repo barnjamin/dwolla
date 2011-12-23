@@ -4,10 +4,10 @@
 class dwolla{
 
     private $options = array(
-		"client_id"=>"N4jhU+xWzXHPvxMN9f9dx1Tsql3YqMZc0eXkhHVIRMsuUwqzYc",
-		'client_secret'=>"27R9HVhvM448tIT+AuHcNFiTAAsORP0hICEXDPvHa8N8wUzYV8"
+		"client_id"=>"",
+		'client_secret'=>""
 	);
-    public $redirect_uri = "http://neighborhoods.newdigs.com/dwolla/index.php";
+    public $redirect_uri = "";
     public $permissions = array("send", "transactions", "balance", "request", "contacts", "accountinfofull");
 	private $oauth_token;
 	private $end_point;
