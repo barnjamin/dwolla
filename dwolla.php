@@ -9,12 +9,12 @@ class dwolla{
 	);
     public $redirect_uri = "";
     public $permissions = array("send", "transactions", "balance", "request", "contacts", "accountinfofull");
-	private $oauth_token;
-	private $end_point;
+    private $oauth_token;
+    private $end_point;
     public $last_url;
     
-	function __construct($a_t=null) {
-	    if(!empty($a_t)){
+    function __construct($a_t=null) {
+	if(!empty($a_t)){
                 $this->oauth_token = $a_t;
         }
     }
@@ -63,7 +63,7 @@ class dwolla{
         
         if(isset($data['acceptTerms'])) $data['acceptTerms'] = "true";
         
-		$url = $this->build_url($this->options);
+	$url = $this->build_url($this->options);
         $data = array_merge($this->options, $data);
      
         $result = $this->execute_query('POST', $url, $data);
@@ -136,22 +136,22 @@ class dwolla{
             $data = json_encode($data);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         }
-		curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2);
-		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
-		curl_setopt($ch, CURLOPT_HEADER, FALSE);
-		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
+	curl_setopt($ch, CURLOPT_HEADER, FALSE);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
 	
-		$result = curl_exec($ch);
+	$result = curl_exec($ch);
      
-		$result = json_decode($result, true);
+	$result = json_decode($result, true);
 		
-		curl_close($ch);
-		return $result;
+	curl_close($ch);
+	return $result;
 	
 	}
 	
