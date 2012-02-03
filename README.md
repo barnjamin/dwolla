@@ -1,7 +1,7 @@
 Dwolla Oauth
 ============
 
-Be sure to familiarize yourself with the (Dwolla Docs)[https://www.dwolla.com/developers/]
+Be sure to familiarize yourself with the [Dwolla Docs](https://www.dwolla.com/developers/)
 
 
 Configuration
@@ -38,7 +38,7 @@ Transactions are a bit different, to send money:
 
 	$reciept = $dwolla->transactions("send", null, $data);
 
-Where $data is an associative array with key/values specified by the table (Here)[https://www.dwolla.com/developers/endpoints/transactions/send]
+Where $data is an associative array with key/values specified by the table [Here](https://www.dwolla.com/developers/endpoints/transactions/send)
 
 
 
