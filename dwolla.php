@@ -113,7 +113,6 @@ class dwolla{
         }
         $params = $this->options;
         $url = $this->build_url($params);
-        if($data) $data  = json_encode($data);
         $result = $this->execute_query($method, $url, $data);
         return $result;
     }
