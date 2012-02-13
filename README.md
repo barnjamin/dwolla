@@ -19,7 +19,7 @@ Call the auth_url function to get the url the user needs to be sent to in order 
 
 The user will be redirected to the redirect_uri page with a get parameter of "code=SOMETHING". Call the get_oauth_token function from this page passing in the value for the code GET parameter.  This will return the result from the request and set the oauth_token within the object.  
 
-	$dowlla = new dwolla();
+	$dwolla = new dwolla();
 	$dwolla->get_oauth_token($_GET['code']);
 
 Once you have an oauth_token you can make requests with that object.
