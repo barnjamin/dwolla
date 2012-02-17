@@ -122,7 +122,7 @@ class dwolla{
     function user($user=null){
         $this->end_point = "rest/users";
         if(!empty($user)) $this->end_point .= '/'.$user;
-        $url = $this->build_url();
+        $url = $this->build_url($this->options);
         $result = $this->execute_query('GET', $url);
         return $result;
     }
