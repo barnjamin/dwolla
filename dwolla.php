@@ -8,7 +8,7 @@ class dwolla{
 		'client_secret'=>""
 	);
     public $redirect_uri = "";
-    public $permissions = array("send", "transactions", "balance", "request", "contacts", "accountinfofull");
+    public $permissions = array("funding", "send", "transactions", "balance", "request", "contacts", "accountinfofull");
     private $oauth_token;
     private $end_point;
     public $last_url;
@@ -94,7 +94,7 @@ class dwolla{
     }
     
     //"transactions" and "send" scopes
-    function transactions($ep=null, $params=null, $data=null){
+    function transactions($ep=null, $data=null){
         $this->end_point = 'rest/transactions';
         switch($ep){
             case "details": $this->end_point .= "/".$params['id'];
@@ -116,7 +116,13 @@ class dwolla{
         $result = $this->execute_query($method, $url, $data);
         return $result;
     }
-    
+    function fundingsources($id){
+    	$this->end_point = "rest/fundingsources";
+	if(!empty($id)) $this->end_point .= '/'.$id;
+	$url = $this->build_url($this->options);
+	$result = $this->execute_query('GET', $url);
+	return $result;
+    } 
     
     //"accountinfofull" scope
     function user($user=null){
