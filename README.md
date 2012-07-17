@@ -36,7 +36,7 @@ To get their contacts:
 
 Transactions are a bit different, to send money:
 
-	$reciept = $dwolla->transactions("send", null, $data);
+	$reciept = $dwolla->transactions("send", $data);
 
 Where $data is an associative array with key/values specified by the table [Here](https://www.dwolla.com/developers/endpoints/transactions/send)
 
